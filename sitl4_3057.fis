@@ -1,0 +1,40 @@
+[System]
+Name='sitl4_3061'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='service'
+Range=[0 10]
+NumMFs=3
+MF1='poor':'trimf',[-4.08763492063492 0.07936507936508 4.24636507936508]
+MF2='excellent':'trimf',[5.78038994708995 9.94708994708995 14.1140899470899]
+MF3='good':'trimf',[1.58730158730159 4.88130158730159 11.5873015873016]
+
+[Input2]
+Name='food'
+Range=[0 10]
+NumMFs=2
+MF1='rancid':'trimf',[-4.167 0 4.167]
+MF2='delicious':'trimf',[0.8333 5 9.167]
+
+[Output1]
+Name='output1'
+Range=[0 30]
+NumMFs=3
+MF1='cheap':'trimf',[-12.5 0 12.5]
+MF2='average':'trimf',[2.5 15 27.5]
+MF3='generous':'trimf',[17.5 30 42.5]
+
+[Rules]
+1 1, 1 (1) : 2
+2 2, 3 (1) : 2
+3 0, 2 (1) : 2
